@@ -1,6 +1,6 @@
 import re
 
-def ukrainian_alphabet_order(word):
+def ukrainian_alphabet(word):
     ukrainian_alphabet = "абвгґдеєжзиіїйклмнопрстуфхцчшщьюя"
     return [ukrainian_alphabet.index(letter.lower()) for letter in word]
 
@@ -18,7 +18,7 @@ def process_text(filename):
             ukrainian_words = [word for word in words if re.match(r'^[А-ЯІЇЄҐа-яіїєґ]+$', word, re.UNICODE)]
             english_words = [word for word in words if re.match(r'^[a-zA-Z]+$', word)]
 
-            ukrainian_words_sorted = sorted(ukrainian_words, key=ukrainian_alphabet_order)
+            ukrainian_words_sorted = sorted(ukrainian_words, key=ukrainian_alphabet)
             english_words_sorted = sorted(english_words, key=str.casefold)
 
             if ukrainian_words_sorted:
